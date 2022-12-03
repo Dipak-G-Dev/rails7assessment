@@ -1,0 +1,53 @@
+.navbar{
+    background-color:  #374242;
+    border-radius: 1px;
+  }
+  .navbar li{
+    float:left;
+    list-style: none;
+    margin: 13px 20px;
+}
+.navbar ul{
+    overflow: auto;
+}
+.navbar li a{
+    padding: 3px 3px;
+    text-decoration: none;
+    color: white;
+}
+.navbar li a:hover{
+    color: red
+}
+html {
+    background-color: grey;
+
+}
+h1 {
+    background-color: gray;
+    text-align: center;
+    padding-bottom: 0px;
+ }
+.nav{
+    text-align: center;
+}
+p{
+    margin-top: 0px;
+    margin-bottom: 0rem;
+    background-color: darkgray;
+}
+li{
+    color: antiquewhite;
+}
+.card{
+    width: inherit;
+    bs-card-border-color: black;
+    bs-card-border-width: 15px;
+    text-align: center;
+    --bs-card-spacer-y: -1rem;
+    --bs-card-spacer-x: -1rem;
+    --bs-card-title-spacer-y: 1rem;
+    --bs-card-border-width: 7px;
+}
+.card-title{
+    text-align: center;
+}

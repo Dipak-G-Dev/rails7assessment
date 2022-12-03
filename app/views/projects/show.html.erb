@@ -1,0 +1,5 @@
+<h1>show of Project</h1>
+<%= @project.project_name %>
+<% if user_signed_in?%>
+  <%= link_to "create task", new_project_task_path(project_id: @project.id), method: :get %>
+<% end %>

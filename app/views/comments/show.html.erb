@@ -1,0 +1,13 @@
+<h1>comments</h1>
+<table>
+    <th><strong>User Name </strong></th>
+    <th><strong>comment:</strong></th>
+    <th><strong>Commented on : </strong></th>
+    <th><strong>Time & date of comment : </strong></th>
+    <tr>
+        <td><%= @comment.user.first_name %></td>
+        <td><%= @comment.comment %></td>
+        <td><%= @comment.task.task%></td>
+        <td><%= @comment.created_at%></td>
+    </tr>
+</table>

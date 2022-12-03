@@ -1,0 +1,22 @@
+<h1> Tasks </h1>
+<table class= "table table-striped table-responsive table-hover">
+    <th> Project Name </th>
+    <th> Assigned by </th>
+    <th> Task </th>
+    <th> Assigned to </th>
+    <th> Assigned On </th>
+    <th><th>
+    <% @task.each do |task|%>
+        <tr>
+            <td><%=task.project.project_name%></td>
+            <td><%=task.assigned_by.first_name%></td>
+            <td><%=task.task%></td>
+            <td><%=task.assigned_to.first_name%></td>
+            <td><%=task.created_at.strftime("%d/%m/%y")%></td>
+            <td><%= link_to "Edit Task", edit_project_task_path(project_id: task.project.id,id: task.id) %></td>
+            <td><%= link_to 'create comments', new_task_comment_path(task_id: task.id), method: :get%></td>
+            <td><%= link_to 'show comments', task_comments_path(id:task.id,task_id:task.id), method: :get%></td>
+
+        </tr>
+    <%end%>
+</table>

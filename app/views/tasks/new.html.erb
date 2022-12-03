@@ -1,0 +1,29 @@
+<h2>New Task</h2>
+<% if @task.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@task.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for [@project,@project.tasks.build] do |f| %>
+  <%= f.hidden_field :project_id, value: @project.id %>
+  <div class="mb-3 mt-3">
+    <%= f.label :task %><br>
+    <%= f.text_field :task %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :assign_to %>
+    <%= f.collection_select :assigned_to_id, @user , :id, :first_name %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :assign_by %>
+    <%= f.collection_select :assigned_by_id, @user , :id, :first_name %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

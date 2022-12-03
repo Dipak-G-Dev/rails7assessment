@@ -1,0 +1,15 @@
+<h1>show of task</h1>
+<table>
+    <tr>
+        <th>Project name</th>
+        <th>Task name</th>
+        <th>Assigned by </th>
+        <th>Assigned to </th>
+    </tr>
+    <tr>
+        <td><%= @project.project_name %></td>
+        <td><%= @task.task %></td>
+        <td><%= @task.assigned_by.first_name %></td>
+        <td><%= @task.assigned_to.first_name %></td>
+    </tr>
+</table>
