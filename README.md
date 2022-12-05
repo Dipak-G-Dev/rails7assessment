@@ -5,20 +5,26 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - ruby 2.7.6
 
-* System dependencies
+* Rails version - Rails 7.0.4
 
-* Configuration
+* Configuration 
+   run -> bundle install
 
 * Database creation
-
+   run -> rails db:create
+   
 * Database initialization
+    set username and password in file "database.yml" based on your environment and database
+    run -> rails db:migrate
 
 * How to run the test suite
+   run -> Rspec 
 
-* Services (job queues, cache servers, search engines, etc.)
+* How to run rails sever
+   if you are using default port then just 
+    run -> rails s   //localhost:3000
 
-* Deployment instructions
-
-* ...
+   if you are using any specific port then 
+    run -> rails s -p port-number

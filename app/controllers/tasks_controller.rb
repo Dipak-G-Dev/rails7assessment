@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :find_project_params, except: [:index]
-  before_action :user_params, only: [:new, :edit]
+  before_action :user, only: [:new, :edit]
   before_action :find_task, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -41,7 +41,6 @@ class TasksController < ApplicationController
   end
 
   private
-
   def task_params
     params.require(:task).permit(:task, :assigned_by_id, :assigned_to_id, :project_id, :status)
   end
@@ -50,7 +49,7 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
-  def user_params
+  def user
     @user = User.all
   end
 

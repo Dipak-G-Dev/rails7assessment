@@ -1,43 +1,43 @@
 <h1> Test Task</h1>
 <nav class="navbar bg-dark">
-    <div class="nav nav-justified">
-        <ul>
-            <li class="nav-item">
-                <%= link_to 'Create Project' , new_project_path %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'View Projects' ,projects_path(@project) %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'Task Details', project_tasks_path(current_user.projects)%>
-            </li>
-
-        </ul>
-    </div>
+  <div class="nav nav-justified">
+    <ul>
+      <li class="nav-item">
+        <%= link_to 'Create Project' , new_project_path %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'View Projects' ,projects_path(@project) %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Task Details', project_tasks_path(current_user.projects)%>
+       </li>
+    </ul>
+  </div>
 </nav>
 
 <div class="card ">
-<h4 class="card-title">My Projects</h4>
-    <% current_user.projects.each do |project| %>
-         <div class="card-body">
-           <%= project.project_name %></div>
+  <h4 class="card-title">My Projects</h4>
+  <% current_user.projects.each do |project| %>
+    <div class="card-body">
+      <%= project.project_name %>
+    </div>
+  <%end%>
+</div>
+
+<div class="card">
+  <h4 class="card-title">My Task</h4> 
+  <div class="card-body"> 
+    <% current_user.tasks.each do |task| %>
+      <%= my_task(task) %>
     <%end%>
+  </div>
 </div>
 
 <div class="card">
-    <h4 class="card-title">My Task</h4>
-    <div class="card-body">
-        <% current_user.tasks.each do |task| %>
-            <%= my_task(task) %>
-        <%end%>
-    </div>
-</div>
-
-<div class="card">
-    <h4 class="card-title">My Pending Task</h4>
-    <div class="card-body">
-        <% current_user.tasks.each do |task| %>
-            <%= status(task) %>
-        <%end%>
-    </div>
+  <h4 class="card-title">My Pending Task</h4>
+  <div class="card-body">
+    <% current_user.tasks.each do |task| %>
+      <%= status(task) %>
+    <%end%>
+  </div>
 </div>

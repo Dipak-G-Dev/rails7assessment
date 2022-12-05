@@ -1,18 +1,19 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_project, only: [:show, :edit, :update, :destroy]
-  before_action :find_user, only: [:index, :new, :create]
+  # before_action :find_user, only: [:index, :new, :create]
 
   def index
-    @project = @user.projects.all
+    @project = current_user.projects
   end
 
   def new
-    @project = @user.projects.new
+    @project = current_user.projects.new
   end
 
   def create
-    @project = @user.projects.create(project_params)
+    @project = current_user.projects.build(project_params)
+
     if @project.save
       redirect_to project_path(@project)
     else
@@ -41,16 +42,11 @@ class ProjectsController < ApplicationController
   end
 
   private
-
   def project_params
     params.require(:project).permit(:project_name)
   end
 
   def  find_project
     @project= Project.find(params[:id])
-  end
-
-  def find_user
-    @user =current_user
   end
 end

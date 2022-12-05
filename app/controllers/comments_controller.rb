@@ -1,17 +1,20 @@
 class CommentsController < ApplicationController
+ 
   def index
-    @task = Task.find(params[:id])
-    @comment = @task.comments.all
+    @task = Task.find(params[:task_id])
+    @comment = @task.comments
   end
+
   def new
     @task = Task.find(params[:task_id])
     @comment =@task.comments.new
   end
-  def create
 
+  def create
     @task =Task.find(params[:task_id])
-    if @task.assigned_to.id == current_user.id || @task.assigned_by.id == current_user.id
+    if (@task.assigned_to.id == current_user.id || @task.assigned_by.id == current_user.id)
       @comment = @task.comments.create(comment_params)
+
       if @comment.save
         redirect_to task_comment_path(@task,@comment)
       else
@@ -28,7 +31,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
   def comment_params
     params.require(:comment).permit(:comment, :task_id, :user_id)
   end
